@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { CreditCard } from 'lucide-react'
 
 const cols = [
@@ -78,7 +79,7 @@ export default function PPFooter() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="/partialpay" className="flex items-center gap-2 mb-4">
+            <Link to="/partialpay" className="flex items-center gap-2 mb-4">
               <span
                 className="flex items-center justify-center w-8 h-8 rounded-lg"
                 style={{ background: 'linear-gradient(135deg, #7C3AED, #4F46E5)' }}
@@ -88,7 +89,7 @@ export default function PPFooter() {
               <span className="text-white font-bold text-base tracking-tight">
                 Partial<span style={{ color: '#A78BFA' }}>Pay</span>
               </span>
-            </a>
+            </Link>
             <p className="text-zinc-500 text-sm leading-relaxed max-w-xs">
               Flexible payment collection for modern Shopify merchants.
             </p>
@@ -114,12 +115,21 @@ export default function PPFooter() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <a
-                      href={l.href}
-                      className="text-zinc-500 hover:text-zinc-300 text-sm transition-colors"
-                    >
-                      {l.label}
-                    </a>
+                    {l.href.startsWith('/') ? (
+                      <Link
+                        to={l.href}
+                        className="text-zinc-500 hover:text-zinc-300 text-sm transition-colors"
+                      >
+                        {l.label}
+                      </Link>
+                    ) : (
+                      <a
+                        href={l.href}
+                        className="text-zinc-500 hover:text-zinc-300 text-sm transition-colors"
+                      >
+                        {l.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, CreditCard, ArrowRight } from 'lucide-react'
 
@@ -40,7 +41,7 @@ export default function PPNavbar() {
         <nav className="flex items-center justify-between h-16 sm:h-18" aria-label="Primary">
 
           {/* Logo */}
-          <a href="/partialpay" className="flex items-center gap-2.5 group" aria-label="PartialPay home">
+          <Link to="/partialpay" className="flex items-center gap-2.5 group" aria-label="PartialPay home">
             <span
               className="flex items-center justify-center w-8 h-8 rounded-lg"
               style={{ background: 'linear-gradient(135deg, #7C3AED, #4F46E5)' }}
@@ -50,7 +51,7 @@ export default function PPNavbar() {
             <span className="text-white font-bold text-lg tracking-tight">
               Partial<span style={{ color: '#A78BFA' }}>Pay</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <ul className="hidden md:flex items-center gap-1" role="list">
